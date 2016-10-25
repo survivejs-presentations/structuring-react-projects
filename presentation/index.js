@@ -210,12 +210,21 @@ export default class Presentation extends React.Component {
             </Layout>
           </Slide>
 
+          <Slide transition={slideTransition} bgColor="black">
+            <BlockQuote>
+              <Quote>Organizations which design systems ... are constrained to produce designs which are copies of the communication structures of these organizations - M. Conway</Quote>
+            </BlockQuote>
+          </Slide>
+
           <Slide transition={slideTransition}>
             <Heading size={1}>
               Recap
             </Heading>
             <List>
-              <Appear><ListItem>TODO</ListItem></Appear>
+              <Appear><ListItem>Easiest pattern - <b>big ball of mud</b> (ad hoc architecture)</ListItem></Appear>
+              <Appear><ListItem>Spaghetti code - follow the code to find the truth, easy to end up with a mess</ListItem></Appear>
+              <Appear><ListItem>Lasagna code - endless amount of layers, can work</ListItem></Appear>
+              <Appear><ListItem>Ravioli code - tight encapsulation, does this scale?</ListItem></Appear>
             </List>
           </Slide>
 
@@ -225,15 +234,92 @@ export default class Presentation extends React.Component {
             </Heading>
           </Slide>
 
-          <Slide transition={slideTransition} bgImage={images.purse} bgDarken={0.45}>
-            <Heading size={1} caps textColor="primary">
-              Structural Debt
+          <Slide transition={slideTransition}>
+            <Image src={images.cssHtmlJS} margin="0px auto 40px" height="524px"/>
+          </Slide>
+
+          <Slide transition={slideTransition}>
+            <Heading caps fit size={1}>
+              Directory per Concept
             </Heading>
-            <Layout>
-              <Text>
-                <Link href="https://pixabay.com/en/purse-money-credit-squeeze-wallet-522622/">stevepb</Link>
-              </Text>
-            </Layout>
+            <CodePane>
+          {`├── actions
+│   └── NoteActions.js
+├── components
+│   ├── App.jsx
+│   ├── Note.jsx
+│   └── Notes.jsx
+├── constants
+│   └── itemTypes.js
+├── index.jsx
+├── libs
+│   ├── alt.js
+│   ├── persist.js
+│   └── storage.js
+├── main.css
+└── stores
+    └── NoteStore.js`}
+            </CodePane>
+          </Slide>
+
+          <Slide transition={slideTransition}>
+            <Heading caps fit size={1}>
+              Directory per Component
+            </Heading>
+            <CodePane>
+          {`├── actions
+│   └── NoteActions.js
+├── components
+│   ├── App
+│   │   ├── App.jsx
+│   │   ├── app.css
+│   │   ├── app_test.jsx
+│   │   └── index.js
+...
+│   └── index.js
+├── constants
+│   └── itemTypes.js
+├── index.jsx
+├── libs
+...
+├── main.css
+└── stores
+    └── NoteStore.js`}
+            </CodePane>
+          </Slide>
+
+          <Slide transition={slideTransition}>
+            <Heading caps fit size={1}>
+              Directory per View
+            </Heading>
+            <CodePane>
+          {`├── components
+│   ├── Note
+│   │   ├── Note.jsx
+│   │   ├── index.js
+│   │   ├── note.css
+│   │   └── note_test.jsx
+│   ├── Routes
+│   │   ├── Routes.jsx
+│   │   ├── index.js
+│   │   └── routes_test.jsx
+│   └── index.js
+...
+├── index.jsx
+├── main.css
+└── views
+    ├── Home
+    │   ├── Home.jsx
+    │   ├── home.css
+    │   ├── home_test.jsx
+    │   └── index.js
+    ├── Register
+    │   ├── Register.jsx
+    │   ├── index.js
+    │   ├── register.css
+    │   └── register_test.jsx
+    └── index.js`}
+            </CodePane>
           </Slide>
 
           <Slide transition={slideTransition} bgImage={images.facade} bgDarken={0.45}>
@@ -245,23 +331,6 @@ export default class Presentation extends React.Component {
                 <Link href="https://pixabay.com/en/facade-window-home-building-117288/">Hans</Link>
               </Text>
             </Layout>
-          </Slide>
-
-          <Slide transition={slideTransition} bgImage={images.scaffolding} bgDarken={0.45}>
-            <Heading size={1} caps textColor="primary">
-              Scaffolding
-            </Heading>
-            <Layout>
-              <Text>
-                <Link href="https://pixabay.com/en/scaffolding-workers-construction-1617969/">AhmadArdity</Link>
-              </Text>
-            </Layout>
-          </Slide>
-
-          <Slide transition={slideTransition} bgColor="black">
-            <BlockQuote>
-              <Quote>Organizations which design systems ... are constrained to produce designs which are copies of the communication structures of these organizations - Melvin Conway</Quote>
-            </BlockQuote>
           </Slide>
 
           <Slide transition={slideTransition} bgColor="secondary">
@@ -280,10 +349,6 @@ export default class Presentation extends React.Component {
             <Heading size={2} textColor="tertiary">
               {`Don't`} Repeat Yourself
             </Heading>
-          </Slide>
-
-          <Slide transition={slideTransition}>
-            <Image src={images.cssHtmlJS} margin="0px auto 40px" height="524px"/>
           </Slide>
 
           <Slide transition={slideTransition}>
