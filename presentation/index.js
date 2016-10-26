@@ -41,8 +41,11 @@ require("./custom.css");
 const slideTransition = ["slide"];
 const images = mapValues({
   cssHtmlJS: require("../images/css-html-js.png"),
+  components: require("../images/components.jpg"),
   tracer: require("../images/tracer.jpg"),
   facade: require("../images/facade.jpg"),
+  folders: require("../images/folders.jpg"),
+  fractal: require("../images/fractal.jpg"),
   palm: require("../images/palm.jpg"),
   prototype: require("../images/prototype.jpg"),
   scaffolding: require("../images/scaffolding.jpg"),
@@ -51,6 +54,8 @@ const images = mapValues({
   ravioli: require("../images/ravioli.jpg"),
   spaghetti: require("../images/spaghetti.jpg"),
   purse: require("../images/purse.jpg"),
+  swiss: require("../images/swiss.jpg"),
+  view: require("../images/view.jpg"),
   survivejs: require("../images/survivejs.png")
 }, v => v.replace('/', ''));
 
@@ -210,12 +215,6 @@ export default class Presentation extends React.Component {
             </Layout>
           </Slide>
 
-          <Slide transition={slideTransition} bgColor="black">
-            <BlockQuote>
-              <Quote>Organizations which design systems ... are constrained to produce designs which are copies of the communication structures of these organizations - M. Conway</Quote>
-            </BlockQuote>
-          </Slide>
-
           <Slide transition={slideTransition}>
             <Heading size={1}>
               Recap
@@ -228,6 +227,12 @@ export default class Presentation extends React.Component {
             </List>
           </Slide>
 
+          <Slide transition={slideTransition} bgColor="black">
+            <BlockQuote>
+              <Quote>Organizations which design systems ... are constrained to produce designs which are copies of the communication structures of these organizations - M. Conway</Quote>
+            </BlockQuote>
+          </Slide>
+
           <Slide transition={slideTransition} bgColor="secondary">
             <Heading size={2} textColor="tertiary">
               React Architectures
@@ -236,6 +241,37 @@ export default class Presentation extends React.Component {
 
           <Slide transition={slideTransition}>
             <Image src={images.cssHtmlJS} margin="0px auto 40px" height="524px"/>
+          </Slide>
+
+          <Slide transition={slideTransition} bgImage={images.facade} bgDarken={0.45}>
+            <Heading size={1} caps textColor="primary">
+              All in One
+            </Heading>
+            <Layout>
+              <Text>
+                <Link href="https://pixabay.com/en/swiss-army-knife-knife-swiss-knife-364232/">flag</Link>
+              </Text>
+            </Layout>
+          </Slide>
+
+          <Slide transition={slideTransition}>
+            <Heading caps fit size={1}>
+              Single File
+            </Heading>
+            <CodePane>
+          {`├── index.jsx`}
+            </CodePane>
+          </Slide>
+
+          <Slide transition={slideTransition} bgImage={images.folders} bgDarken={0.45}>
+            <Heading size={1} caps textColor="primary">
+              Splitting Up
+            </Heading>
+            <Layout>
+              <Text>
+                <Link href="https://pixabay.com/en/folder-federal-folder-file-archive-626332/">422737</Link>
+              </Text>
+            </Layout>
           </Slide>
 
           <Slide transition={slideTransition}>
@@ -260,6 +296,17 @@ export default class Presentation extends React.Component {
 └── stores
     └── NoteStore.js`}
             </CodePane>
+          </Slide>
+
+          <Slide transition={slideTransition} bgImage={images.components} bgDarken={0.45}>
+            <Heading size={1} caps textColor="primary">
+              Components
+            </Heading>
+            <Layout>
+              <Text>
+                <Link href="https://pixabay.com/en/printed-circuit-board-print-plate-1539113/">Thomas1311</Link>
+              </Text>
+            </Layout>
           </Slide>
 
           <Slide transition={slideTransition}>
@@ -288,6 +335,17 @@ export default class Presentation extends React.Component {
             </CodePane>
           </Slide>
 
+          <Slide transition={slideTransition} bgImage={images.view} bgDarken={0.45}>
+            <Heading size={1} caps textColor="primary">
+              Views
+            </Heading>
+            <Layout>
+              <Text>
+                <Link href="https://pixabay.com/en/man-view-from-the-roof-618344/">547877</Link>
+              </Text>
+            </Layout>
+          </Slide>
+
           <Slide transition={slideTransition}>
             <Heading caps fit size={1}>
               Directory per View
@@ -307,7 +365,49 @@ export default class Presentation extends React.Component {
 ...
 ├── index.jsx
 ├── main.css
-└── views
+└── views - Composed of components
+    ├── Home
+    │   ├── Home.jsx
+    │   ├── home.css
+    │   ├── home_test.jsx
+    │   └── index.js
+    ├── Register
+    │   ├── Register.jsx
+    │   ├── index.js
+    │   ├── register.css
+    │   └── register_test.jsx
+    └── index.js`}
+            </CodePane>
+          </Slide>
+
+          <Slide transition={slideTransition} bgImage={images.fractal} bgDarken={0.45}>
+            <Heading size={1} caps textColor="primary">
+              Fractals
+            </Heading>
+            <Layout>
+              <Text>
+                <Link href="https://pixabay.com/en/abstract-fractal-sphere-eye-1414331/">MartaNemcova</Link>
+              </Text>
+            </Layout>
+          </Slide>
+
+          <Slide transition={slideTransition}>
+            <Heading caps fit size={1}>
+              Directory per Feature
+            </Heading>
+            <CodePane>
+          {`├── components
+...
+├── features - Composed of components
+│   ├── Login
+│   │   ├── Login.jsx
+│   │   ├── index.js
+│   │   ├── login.css
+│   │   └── login_test.jsx
+...
+├── index.jsx
+├── main.css
+└── views - Composed of features and components
     ├── Home
     │   ├── Home.jsx
     │   ├── home.css
@@ -333,106 +433,71 @@ export default class Presentation extends React.Component {
             </Layout>
           </Slide>
 
-          <Slide transition={slideTransition} bgColor="secondary">
-            <Heading size={2} textColor="tertiary">
-              Tooling
-            </Heading>
-          </Slide>
-
-          <Slide transition={slideTransition} bgColor="secondary">
-            <Heading size={2} textColor="tertiary">
-              Separation of Concerns
-            </Heading>
-          </Slide>
-
-          <Slide transition={slideTransition} bgColor="secondary">
-            <Heading size={2} textColor="tertiary">
-              {`Don't`} Repeat Yourself
-            </Heading>
-          </Slide>
-
-          <Slide transition={slideTransition}>
-            <Appear fid="1">
-              <Heading size={2} caps fit>
-                Inline JavaScript
-              </Heading>
-            </Appear>
-            <Appear fid="2">
-              <Heading size={2} caps fit textColor="tertiary">
-                AJAX (async)
-              </Heading>
-            </Appear>
-            <Appear fid="3">
-              <Heading size={2} caps fit>
-                Single Page Applications
-              </Heading>
-            </Appear>
-            <Appear fid="3">
-              <Heading size={2} caps fit textColor="tertiary">
-                Universal JavaScript
-              </Heading>
-            </Appear>
-          </Slide>
-
           <Slide transition={slideTransition}>
             <Heading caps fit size={1}>
-              Build Tools
+              Separating State from Components
             </Heading>
-            <Layout>
-              <Table>
-                <thead>
-                  <TableRow>
-                    <TableHeaderItem>1st Gen.</TableHeaderItem>
-                    <TableHeaderItem>2nd Gen.</TableHeaderItem>
-                    <TableHeaderItem>3rd Gen.</TableHeaderItem>
-                  </TableRow>
-                </thead>
-                <tbody>
-                  <TableRow>
-                    <TableItem>Make</TableItem>
-                    <TableItem>Grunt</TableItem>
-                    <TableItem>Browserify</TableItem>
-                  </TableRow>
-                  <TableRow>
-                    <TableItem></TableItem>
-                    <TableItem>Gulp</TableItem>
-                    <TableItem>Webpack</TableItem>
-                  </TableRow>
-                  <TableRow>
-                    <TableItem></TableItem>
-                    <TableItem>Broccoli</TableItem>
-                    <TableItem>JSPM</TableItem>
-                  </TableRow>
-                </tbody>
-              </Table>
-            </Layout>
-          </Slide>
-
-          <Slide transition={slideTransition}>
-            <Heading size={2}>
-              Solution
-            </Heading>
-          </Slide>
-
-          <Slide transition={slideTransition}>
-            <Heading size={4}>
-              Minimal Demo
-            </Heading>
-            <CodePane
-              lang="jsx"
-              source={require("raw!../examples/demo.jsx")}
-              margin="20px auto"
-            />
+            <CodePane>
+          {`├── components
+│   ├── App.js
+│   ├── App.test.js
+│   ├── Note.js
+│   └── Notes.js
+├── constants
+│   └── itemTypes.js
+├── index.js
+├── main.css
+└── state
+    ├── Provider.js
+    ├── actions.js
+    ├── alt
+    │   ├── Provider.js
+    │   ├── actions
+    │   │   ├── LaneActions.js
+    │   │   ├── NoteActions.js
+    │   │   └── index.js
+    │   ├── alt.js
+    │   ├── connect.js
+    │   ├── init.js
+    │   ├── persist.js
+    │   └── stores
+    │       ├── LaneStore.js
+    │       └── NoteStore.js
+    ├── connect.js
+    ├── env.js
+    ├── index.js
+    ├── init.js
+    ├── redux
+    │   ├── Provider.js
+    │   ├── actions
+    │   │   ├── LaneActions.js
+    │   │   ├── NoteActions.js
+    │   │   └── index.js
+    │   ├── connect.js
+    │   ├── init.js
+    │   ├── reducers
+    │   │   ├── index.js
+    │   │   ├── lanes.js
+    │   │   └── notes.js
+    │   └── store
+    │       ├── index.js
+    │       ├── store.dev.js
+    │       └── store.prod.js
+    └── storage.js`}
+            </CodePane>
           </Slide>
 
           <Slide transition={slideTransition}>
             <Heading size={1}>
-              Exercises
+              Recap
             </Heading>
             <List>
-              <Appear><ListItem>Exercise 1</ListItem></Appear>
-              <Appear><ListItem>*Exercise 2</ListItem></Appear>
-              <Appear><ListItem>**Exercise 3</ListItem></Appear>
+              <Appear><ListItem>Good structure works with you, bad structure against you</ListItem></Appear>
+              <Appear><ListItem>Different structures for different stages</ListItem></Appear>
+              <Appear><ListItem>Evolve as you go, {`don't`} be afraid to abstract</ListItem></Appear>
+              <Appear><ListItem>Big applications are fractal (smaller applications inside bigger ones)</ListItem></Appear>
+              <Appear><ListItem>As component hierarchy evolves, {`you'll`} end up with different levels of abstraction (abstract top, concrete bottom, lasagna anyone?)</ListItem></Appear>
+              <Appear><ListItem>Remember Conway, avoid dogma</ListItem></Appear>
             </List>
           </Slide>
 
