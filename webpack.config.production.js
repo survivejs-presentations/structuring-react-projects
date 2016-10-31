@@ -64,6 +64,10 @@ module.exports = {
       loader: "url-loader?limit=8192",
       include: PATHS.images
     }, {
+      test: /\.mp4$/,
+      loader: "url?limit=10000&mimetype=video/mp4",
+      include: PATHS.images
+    }, {
       test: /\.svg$/,
       loader: "url?limit=10000&mimetype=image/svg+xml",
       include: PATHS.images

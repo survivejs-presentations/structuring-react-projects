@@ -10,6 +10,7 @@ import {
   CodePane,
   Deck,
   Fill,
+  Fit,
   Heading,
   Image,
   Layout,
@@ -56,7 +57,8 @@ const images = mapValues({
   purse: require("../images/purse.jpg"),
   swiss: require("../images/swiss.jpg"),
   view: require("../images/view.jpg"),
-  survivejs: require("../images/survivejs.png")
+  survivejs: require("../images/survivejs.png"),
+  atomicDesign: require("../images/atomic-design.mp4")
 }, v => v.replace('/', ''));
 
 preloader(images);
@@ -418,6 +420,74 @@ export default class Presentation extends React.Component {
     │   ├── index.js
     │   ├── register.css
     │   └── register_test.jsx
+    └── index.js`}
+            </CodePane>
+          </Slide>
+
+          <Slide transition={slideTransition}>
+            <Heading size={1} caps>
+              Atomic Design
+            </Heading>
+            <video autoPlay loop margin="40px auto" height="524px">
+              <source src={images.atomicDesign} />
+            </video>
+            <Text>
+              <Link href="http://patternlab.io/">Pattern Lab</Link>
+            </Text>
+          </Slide>
+
+          <Slide transition={slideTransition}>
+            <Link href="https://arc.js.org/">
+              <Heading caps fit size={1}>
+                Atomic React
+              </Heading>
+            </Link>
+            <CodePane>
+          {`├── App.js
+├── atoms
+│   ├── Badge
+│   │   ├── index.js
+│   │   └── index.test.js
+│   ├── Button
+│   │   ├── index.js
+│   │   └── index.test.js
+...
+│   ├── TableRow
+│   │   ├── index.js
+│   │   └── index.test.js
+│   └── index.js
+├── globals.js
+├── index.js
+├── molecules
+│   ├── Blockquote
+│   │   ├── index.js
+│   │   └── index.test.js
+...
+│   ├── Table
+│   │   ├── index.js
+│   │   └── index.test.js
+│   └── index.js
+├── organisms
+│   ├── FeatureList
+│   │   ├── index.js
+│   │   └── index.test.js
+...
+│   ├── Hero
+│   │   ├── index.js
+│   │   └── index.test.js
+│   └── index.js
+├── pages
+│   ├── HomePage
+│   │   ├── index.js
+│   │   └── index.test.js
+│   ├── SamplePage
+│   │   ├── index.js
+│   │   └── index.test.js
+│   └── index.js
+└── templates
+    ├── PageTemplate
+    │   ├── index.js
+    │   └── index.test.js
     └── index.js`}
             </CodePane>
           </Slide>

@@ -61,6 +61,10 @@ module.exports = {
       loader: "url-loader?limit=10000mimetype=image/png",
       include: PATHS.images
     }, {
+      test: /\.mp4$/,
+      loader: "url?limit=10000&mimetype=video/mp4",
+      include: PATHS.images
+    }, {
       test: /\.jpg$/,
       loader: "url-loader?limit=10000mimetype=image/jpg",
       include: PATHS.images
