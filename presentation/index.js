@@ -382,6 +382,14 @@ export default class Presentation extends React.Component {
             </CodePane>
           </Slide>
 
+          <Slide transition={slideTransition} bgImage={images.view} bgDarken={0.45}>
+            <Link href="https://github.com/gajus/create-index">
+              <Heading size={1} caps textColor="primary">
+                gajus/create-index
+              </Heading>
+            </Link>
+          </Slide>
+
           <Slide transition={slideTransition} bgImage={images.fractal} bgDarken={0.45}>
             <Heading size={1} caps textColor="primary">
               Fractals
