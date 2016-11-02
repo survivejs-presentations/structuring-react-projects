@@ -54,6 +54,7 @@ const images = mapValues({
   lasagna: require("../images/lasagna.jpg"),
   ravioli: require("../images/ravioli.jpg"),
   spaghetti: require("../images/spaghetti.jpg"),
+  storybook: require("../images/storybook.gif"),
   purse: require("../images/purse.jpg"),
   swiss: require("../images/swiss.jpg"),
   view: require("../images/view.jpg"),
@@ -300,15 +301,14 @@ export default class Presentation extends React.Component {
             </CodePane>
           </Slide>
 
-          <Slide transition={slideTransition} bgImage={images.components} bgDarken={0.45}>
-            <Heading size={1} caps textColor="primary">
+          <Slide transition={slideTransition}>
+            <Heading size={1} caps>
               Components
             </Heading>
-            <Layout>
-              <Text>
-                <Link href="https://pixabay.com/en/printed-circuit-board-print-plate-1539113/">Thomas1311</Link>
-              </Text>
-            </Layout>
+            <img src={images.storybook} height="524px" alt="Storybook" />
+            <Text>
+              <Link href="https://getstorybook.io/">Storybook</Link>
+            </Text>
           </Slide>
 
           <Slide transition={slideTransition}>
